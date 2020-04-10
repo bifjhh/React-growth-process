@@ -13,7 +13,10 @@ class ToDoLists extends Component {
   }
 
   submit = () => {
-    const { msg, lists } = this.state.msg;
+    const { msg, lists } = this.state;
+    if (!msg['userNaame'] || !msg['content']) {
+      return alert('昵称或内容不能为空!!!')
+    }
     lists.push({ ...msg });
     msg.userNaame = "";
     msg.content = "";
