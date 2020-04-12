@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import NewClassCmp from './Hello';
 import FormInput from './Form';
 import ToDoLists from './ToDoLists';
+import Props from './Props';
+
 import './index.css';
 
 ReactDOM.render(
@@ -11,6 +13,7 @@ ReactDOM.render(
     <ToDoLists  />
     <NewClassCmp  />
     <FormInput  />
+    <Props msg={'参数传递msg'} />
   </div>,
   document.getElementById('root')
 );
