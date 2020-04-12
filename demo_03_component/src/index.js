@@ -13,7 +13,7 @@ ReactDOM.render(
     <ToDoLists  />
     <NewClassCmp  />
     <FormInput  />
-    <Props msg={'参数传递msg'} />
+    <Props />
   </div>,
   document.getElementById('root')
 );

@@ -1,27 +1,45 @@
 import React, { Component } from "react";
 
-// const Props = props => {
-//   return (
-//     <div>
-//       <h3>组件传参</h3>
-//       msg: {props.msg}
-//     </div>
-//   );
-// };
-
-class Props extends Component {
-  constructor(params) {
-    super(params);
+class Child extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      msg: params.msg || '暂无'
-    }
+      msg: this.props.msg || "暂无"
+    };
   }
+  
+  submit = e => {
+    const msg = e.target.value;
+    this.setState({ msg });
+    this.props.cb(msg)
+  };
 
   render() {
     return (
       <div>
+        <div>msg: {this.state.msg}</div>
+        <input type="submit" value="改变数据" onClick={this.submit} />
+      </div>
+    );
+  }
+}
+
+class Props extends Component {
+  constructor() {
+    super();
+    this.state = {
+      msg: "父组件传递的"
+    };
+  }
+
+  message = msg => {
+    this.setState({ msg });
+  };
+  render() {
+    return (
+      <div>
         <h3>组件传参</h3>
-        msg: {this.state.msg}
+        <Child msg={this.state.msg} cb={this.message} />
       </div>
     );
   }
