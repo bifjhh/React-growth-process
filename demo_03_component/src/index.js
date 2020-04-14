@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom';
 // import ToDoLists from './ToDoLists';
 // import Props from './Props.jsx';
 // import Context from './Context';
-import Children from './Children';
+// import Children from './Children';
+import Validation from './Props.validation';
 
 import './index.css';
 
@@ -17,7 +18,8 @@ ReactDOM.render(
     {/* <FormInput  /> */}
     {/* <Props /> */}
     {/* <Context /> */}
-    <Children><div>1</div></Children>
+    {/* <Children><div>1</div></Children> */}
+    <Validation max={'s'} />
   </div>,
   document.getElementById('root')
 );
