@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 class Validation extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
   render() {
     return (
@@ -29,5 +29,10 @@ Validation.propTypes = {
     name: propTypes.string,
     age: propTypes.number
   })
-}
+};
+
+Validation.defaultProps = {
+  count: 10
+};
+
 export default Validation;

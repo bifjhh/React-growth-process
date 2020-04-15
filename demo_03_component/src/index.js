@@ -19,7 +19,7 @@ ReactDOM.render(
     {/* <Props /> */}
     {/* <Context /> */}
     {/* <Children><div>1</div></Children> */}
-    <Validation count={5} max={1} />
+    <Validation max={1} />
   </div>,
   document.getElementById('root')
 );

@@ -45,7 +45,6 @@
   - `children` 的值可以为任意值:文本,元素,组件,函数
 
 - `props` 数据校验
-
   - 依赖`prop-types` npm 包
   - 设置组件的`this.propTypes`属性
     ```js
@@ -63,3 +62,10 @@
       }
     ```
   - 指定数据结构 `propTypes.shape({})` 
+
+- `props`默认值
+```js
+  Validation.defaultProps = {
+    count: 10
+  };
+```
