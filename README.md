@@ -45,11 +45,21 @@
   - `children` 的值可以为任意值:文本,元素,组件,函数
 
 - `props` 数据校验
+
   - 依赖`prop-types` npm 包
   - 设置组件的`this.propTypes`属性
     ```js
-      import propTypes from 'prop-types';
-      this.propTypes = {
+      import propTypes from "prop-types";
+      Validation.propTypes = {
         max: propTypes.number
+      };
+    ```
+  - 必填项 `isRequired`
+    ```js
+      import propTypes from "prop-types";
+      Validation.propTypes = {
+        max: propTypes.number.isRequired,// 添加了isRequired
+        count: propTypes.number
       }
     ```
+  - 指定数据结构 `propTypes.shape({})` 
