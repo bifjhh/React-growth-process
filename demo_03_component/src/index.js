@@ -7,7 +7,8 @@ import ReactDOM from 'react-dom';
 // import Props from './Props.jsx';
 // import Context from './Context';
 // import Children from './Children';
-import Validation from './Props.validation';
+// import Validation from './Props.validation';
+import LifeCycle from './LifeCycle';
 
 import './index.css';
 
@@ -19,7 +20,8 @@ ReactDOM.render(
     {/* <Props /> */}
     {/* <Context /> */}
     {/* <Children><div>1</div></Children> */}
-    <Validation max={1} />
+    {/* <Validation max={1} /> */}
+    <LifeCycle />
   </div>,
   document.getElementById('root')
 );

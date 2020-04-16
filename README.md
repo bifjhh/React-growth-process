@@ -45,27 +45,45 @@
   - `children` 的值可以为任意值:文本,元素,组件,函数
 
 - `props` 数据校验
+
   - 依赖`prop-types` npm 包
   - 设置组件的`this.propTypes`属性
     ```js
-      import propTypes from "prop-types";
-      Validation.propTypes = {
-        max: propTypes.number
-      };
+    import propTypes from "prop-types";
+    Validation.propTypes = {
+      max: propTypes.number
+    };
     ```
   - 必填项 `isRequired`
     ```js
-      import propTypes from "prop-types";
-      Validation.propTypes = {
-        max: propTypes.number.isRequired,// 添加了isRequired
-        count: propTypes.number
-      }
+    import propTypes from "prop-types";
+    Validation.propTypes = {
+      max: propTypes.number.isRequired, // 添加了isRequired
+      count: propTypes.number
+    };
     ```
-  - 指定数据结构 `propTypes.shape({})` 
+  - 指定数据结构 `propTypes.shape({})`
 
 - `props`默认值
-```js
+  ```js
   Validation.defaultProps = {
     count: 10
   };
-```
+  ```
+
+#### 组件的生命周期
+
+> 组件从被创建,到卸载经历的过程-->函数组件没有生命周期
+
+- 钩子函数
+
+  > 组件的生命周期,每一个过程所提供的操作的方法
+
+- 生命周期的三个阶段
+  - 创建时(页面加载)
+    - `constructor` 初始化一些数据
+    - `render` 每次页面渲染都会执行, 不能调用`this.setState()`
+    - `componentDidMount` 进行一些网络请求,操作 DOM
+    - 注意,只有`componentDidMount`可以操作`DOM`,因为`constructor` 和 `render`钩子执行时页面还没有加载完成
+  - 更新时
+  - 卸载时
