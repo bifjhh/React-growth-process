@@ -145,3 +145,13 @@
     ()=> console.log('数据更新完成:', this.state.age));
   ```
 - 同一方法体内执行多次`setState`会被合并为一次执行操作,只会触发一次`render`方法重新渲染
+
+#### JSX语法的转化过程
+- `JSX` 语法是 `createElement()` 方法的语法糖, 通过 `@babel/preset-react`  插件编译为`createElement`方法
+- `createElement` 方法被转换为 `React` 元素
+- `React` 元素被转渲染到页面中
+
+
+
+
+
