@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-
+import { Component } from "react";
+import PropTypes from 'prop-types';
 
 class Mouse extends Component {
   constructor(props) {
@@ -25,8 +25,11 @@ class Mouse extends Component {
   }
 
   render() {
-    return this.props.renderProps(this.state);
+    return this.props.children(this.state);
   }
 }
 
+Mouse.propTypes = {
+  children: PropTypes.func.isRequired
+}
 export default Mouse;

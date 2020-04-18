@@ -25,8 +25,8 @@ class RenderPorps extends Component {
   render() {
     return (
       <div>
-        <Mouse renderProps={this.renderCoordinates}/>
-        <Mouse renderProps={this.renderCat}/>
+        <Mouse>{this.renderCoordinates}</Mouse>
+        <Mouse>{this.renderCat}</Mouse>
       </div>
     );
   }

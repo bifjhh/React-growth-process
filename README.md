@@ -80,21 +80,31 @@
   > 组件的生命周期,每一个过程所提供的操作的方法
 
 - 生命周期的三个阶段
+
   - 创建时(页面加载)
     - `constructor` 初始化一些数据
     - `render` 每次页面渲染都会执行, 不能调用`this.setState()`
     - `componentDidMount` 进行一些网络请求,操作 DOM
     - 注意,只有`componentDidMount`可以操作`DOM`,因为`constructor` 和 `render`钩子执行时页面还没有加载完成
   - 更新时
-    - 更新时机 
-      - `new props`   组件接收到新的参数时会更新
-      - `setState`    改变组件数据时
+
+    - 更新时机
+      - `new props` 组件接收到新的参数时会更新
+      - `setState` 改变组件数据时
       - `forceUpdate` 强制执行更新
     - `render` 每次数据更新,都会让页面重新渲染 同创建时的`render` 是同一个
     - `componentDidUpdate` 更新完成之后
       - 执行操作`DOM`,发送`Ajax`
-      - 如果在此钩子函数中使用`setState` 则需要使用一个`if`条件来执行, (负责则会进行递归更新了) 
+      - 如果在此钩子函数中使用`setState` 则需要使用一个`if`条件来执行, (负责则会进行递归更新了)
 
   - 卸载时
     - `componentWillUnmount`
-      - 执行一些收尾操作,定时器之类   
+      - 执行一些收尾操作,定时器之类
+
+#### render props
+
+- 在组件内使用`props` 来渲染内容
+  - 场景, 组件负责获取数据,根据不同的传入值渲染不同的内容(view 层)
+- 使用`children`代替`props`函数
+
+#### 高阶组件
