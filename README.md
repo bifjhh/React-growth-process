@@ -124,3 +124,24 @@
 - 补充
   - 设置组件的`displayName` 防止复用组件名称相同不易区分
   - 向下传递`props`
+
+#### setState() 方法说明
+- 异步执行数据的更新
+  ```js
+    // 例: this.num = 1
+    this.setState({
+      num: this.state.num + 1
+    })
+    console.log(this.num) // 结果为1, 因为数据还没有完成更新之后就执行了log输出
+    this.setState({
+      num: this.state.num + 1 // 此时的this.num 依旧是 1, 所以如果有多个setState执行,请注意
+    })
+    // 通过回调函数的方式,可以获取页面最新的数据
+    this.setState((state, props) => {
+      return {
+        num: state.num + 1
+      };
+    }, // 通过传递第二个参数,一个回调函数,可以对数据状态更新后执行操作
+    ()=> console.log('数据更新完成:', this.state.age));
+  ```
+- 同一方法体内执行多次`setState`会被合并为一次执行操作,只会触发一次`render`方法重新渲染

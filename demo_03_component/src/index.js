@@ -10,7 +10,8 @@ import ReactDOM from 'react-dom';
 // import Validation from './Props.validation';
 // import LifeCycle from './LifeCycle';
 // import RenderProps from './RenderProps';
-import HighOrderComponent from './HighOrderComponent';
+// import HighOrderComponent from './HighOrderComponent';
+import SetStateDemo from './setState.demo';
 
 import './index.css';
 
@@ -25,7 +26,8 @@ ReactDOM.render(
     {/* <Validation max={1} /> */}
     {/* <LifeCycle /> */}
     {/* <RenderProps /> */}
-    <HighOrderComponent />
+    {/* <HighOrderComponent /> */}
+    <SetStateDemo />
   </div>,
   document.getElementById('root')
 );
