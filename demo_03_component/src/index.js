@@ -9,7 +9,8 @@ import ReactDOM from 'react-dom';
 // import Children from './Children';
 // import Validation from './Props.validation';
 // import LifeCycle from './LifeCycle';
-import RenderProps from './RenderProps';
+// import RenderProps from './RenderProps';
+import HighOrderComponent from './HighOrderComponent';
 
 import './index.css';
 
@@ -23,7 +24,8 @@ ReactDOM.render(
     {/* <Children><div>1</div></Children> */}
     {/* <Validation max={1} /> */}
     {/* <LifeCycle /> */}
-    <RenderProps />
+    {/* <RenderProps /> */}
+    <HighOrderComponent />
   </div>,
   document.getElementById('root')
 );
