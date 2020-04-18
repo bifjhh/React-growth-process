@@ -8,7 +8,8 @@ import ReactDOM from 'react-dom';
 // import Context from './Context';
 // import Children from './Children';
 // import Validation from './Props.validation';
-import LifeCycle from './LifeCycle';
+// import LifeCycle from './LifeCycle';
+import RenderProps from './RenderProps';
 
 import './index.css';
 
@@ -21,7 +22,8 @@ ReactDOM.render(
     {/* <Context /> */}
     {/* <Children><div>1</div></Children> */}
     {/* <Validation max={1} /> */}
-    <LifeCycle />
+    {/* <LifeCycle /> */}
+    <RenderProps />
   </div>,
   document.getElementById('root')
 );
