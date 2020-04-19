@@ -125,33 +125,45 @@
   - 设置组件的`displayName` 防止复用组件名称相同不易区分
   - 向下传递`props`
 
-#### setState() 方法说明
-- 异步执行数据的更新
-  ```js
-    // 例: this.num = 1
-    this.setState({
-      num: this.state.num + 1
-    })
-    console.log(this.num) // 结果为1, 因为数据还没有完成更新之后就执行了log输出
-    this.setState({
-      num: this.state.num + 1 // 此时的this.num 依旧是 1, 所以如果有多个setState执行,请注意
-    })
-    // 通过回调函数的方式,可以获取页面最新的数据
-    this.setState((state, props) => {
-      return {
-        num: state.num + 1
-      };
-    }, // 通过传递第二个参数,一个回调函数,可以对数据状态更新后执行操作
-    ()=> console.log('数据更新完成:', this.state.age));
-  ```
-- 同一方法体内执行多次`setState`会被合并为一次执行操作,只会触发一次`render`方法重新渲染
+- setState() 方法说明
+  - 异步执行数据的更新
+    ```js
+      // 例: this.num = 1
+      this.setState({
+        num: this.state.num + 1
+      })
+      console.log(this.num) // 结果为1, 因为数据还没有完成更新之后就执行了log输出
+      this.setState({
+        num: this.state.num + 1 // 此时的this.num 依旧是 1, 所以如果有多个setState执行,请注意
+      })
+      // 通过回调函数的方式,可以获取页面最新的数据
+      this.setState((state, props) => {
+        return {
+          num: state.num + 1
+        };
+      }, // 通过传递第二个参数,一个回调函数,可以对数据状态更新后执行操作
+      ()=> console.log('数据更新完成:', this.state.age));
+    ```
+  - 同一方法体内执行多次`setState`会被合并为一次执行操作,只会触发一次`render`方法重新渲染
 
-#### JSX语法的转化过程
-- `JSX` 语法是 `createElement()` 方法的语法糖, 通过 `@babel/preset-react`  插件编译为`createElement`方法
-- `createElement` 方法被转换为 `React` 元素
-- `React` 元素被转渲染到页面中
+- JSX语法的转化过程
+  - `JSX` 语法是 `createElement()` 方法的语法糖, 通过 `@babel/preset-react`  插件编译为`createElement`方法
+  - `createElement` 方法被转换为 `React` 元素
+  - `React` 元素被转渲染到页面中
 
+- 组件更新机制
+  - `setState`,修改数据时会更新UI,已发`render` 重新渲染
+  - 多组件使用时,组件重新渲染,只会渲染当前数据变动的组件及当前组件下的子组件
 
+- 组件性能优化
+  - 减轻`state`, `state`主要是存放页面渲染相关的数据,与渲染无关但是又要 多次使用的可以放在当前组件的`this`中
 
+  - 避免不必要的重新渲染
+    - `shouldComponentUpdate(nextProps, nextState)`
+      - 方法的返回值决定了是否重新渲染页面
+      - 使用`nextState, nextProps` 和 `this.props,  this.state` 进行对比,如果数据发生变化,则返回`true` 页面重新渲染,否则不进行重新渲染
+      - `shouldComponentUpdate`钩子函数在`render`之前执行
 
-
+  - `PureComponent` 纯组件
+    - 对于简单类型(`number,string`),组件内部会自行对比是否进行渲染
+    - 对于引用类型(`array,string`)等数据,只会对比其引用地址是否变化,如果地址变化其内容没有变化,则也会进行渲染,反之,如果在原有`Object`类型数据上更新数据,是不会触发组件的重新渲染的,因为引用指向相同

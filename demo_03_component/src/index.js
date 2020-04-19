@@ -11,7 +11,8 @@ import ReactDOM from 'react-dom';
 // import LifeCycle from './LifeCycle';
 // import RenderProps from './RenderProps';
 // import HighOrderComponent from './HighOrderComponent';
-import SetStateDemo from './setState.demo';
+// import SetStateDemo from './setState.demo';
+import PureComponentDemo from './PureComponent';
 
 import './index.css';
 
@@ -27,7 +28,8 @@ ReactDOM.render(
     {/* <LifeCycle /> */}
     {/* <RenderProps /> */}
     {/* <HighOrderComponent /> */}
-    <SetStateDemo />
+    {/* <SetStateDemo /> */}
+    <PureComponentDemo />
   </div>,
   document.getElementById('root')
 );
