@@ -185,3 +185,22 @@
 - 前端路由的功能: 切换视图-->类似于之前的多页面的跳转
 - 前端路由是一套映射规则, 约定(某某url渲染某些文件内的内容)
 - `React-router` ,就是配置 `路径`和`组件`,根据不同路径,加载不同的组件内容
+
+
+#### 使用`react-router-dom`
+> `import { BrowserRouter as Router, Route, Link } from "react-router-dom";`
+- 安装,并引入`react-router-dom`包
+```js
+  import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+  // 路由组件使用 Router 标签包裹
+  <Router>
+    // Link同等于 a 标签, to: 要跳转的url
+    <Link to={path}>{name} </Link>
+    // 子组件的容器 Link标签跳转后的内容渲染在这里 path: 匹配的url  component:渲染的组件内容
+    <Route path={path} component={ComponentName} />
+  </Router>
+```
+- 常用组件说明
+  - `Router`组件,包裹整个应用,一个项目只需要使用一次
+  - `Router`-`BrowserRouter` 使用H5的 history API实现 `http://localhost:3000`
+  - `Router`-`HashRouter`(域名后带有一个#) 使用url的哈希值来实现的 `http://localhost:3000/#/`
