@@ -204,3 +204,9 @@
   - `Router`组件,包裹整个应用,一个项目只需要使用一次
   - `Router`-`BrowserRouter` 使用H5的 history API实现 `http://localhost:3000`
   - `Router`-`HashRouter`(域名后带有一个#) 使用url的哈希值来实现的 `http://localhost:3000/#/`
+
+- 编程式导航
+  - `this.props.history.push(path)`
+  - 通过React提供的 `history`对象,可以获取`浏览器历史记录`相关 信息
+  - 通过`push`可以使当前路由发生变动
+  - 通过`go(-1)` 则表示页面后退一步

@@ -51,11 +51,16 @@ class ToDoLists extends Component {
       );
     });
   };
-
+  go= () => {
+    this.props.history.go(-1)
+    console.log(this.props);
+  }
   render() {
     return (
       <div className="listbox">
         <h3>ToDoLists</h3>
+        <br/>
+        <button onClick={this.go}>返回上级</button>
         <div>
           <input
             type="text"
